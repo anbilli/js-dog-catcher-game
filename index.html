@@ -1,0 +1,106 @@
+<html>
+
+<title>One of the Pack Dog Simulation Game</title>
+
+<!-- JS -->
+<script src='scripts/jquery.min.js'></script>
+<script src='scripts/jqfloat.min.js'></script>
+<script src='scripts/dogscript.js'></script>
+
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="style/style.css">
+<link href="https://fonts.googleapis.com/css?family=Pacifico|Alegreya+Sans" rel="stylesheet">
+
+<!-- HTML -->
+<body>
+	<div id="outer-container">
+	
+	<!-- INTRODUCTION -->
+	<div id="game-intro">
+		<div id="title-page">
+			<h1 id="game-title" class="header">One of the Pack</h1>
+			<button id="instructions-btn1">
+				Instructions
+			</button>
+			<button id="play-btn1">
+				Play
+			</button>
+		</div>
+		<div id="instructions-page1">
+			<h1 id="instructions-title" class="header">How to Play</h1>
+			
+			<div id="instructions">
+				Congrats! You’ve recently moved to the city and have befriended a pack of stray dogs in a nearby park. Unfortunately, the dogs are facing some challenges like hunger, rabid raccoons, and animal control. As the newest member of the pack, your job is to help save these dogs by grabbing items from your tool belt and applying them to the threats in the park. Each time you rescue a dog, you earn some coins which in turn can be used to purchase more supplies for your tool belt. If you don't save a dog from a threat, its health will diminish and eventually it will die! 
+			</div>
+
+			<button id="back-btn2">
+				Back
+			</button>
+			<button id="play-btn2">
+				Play
+			</button>
+		</div>
+	</div>
+
+	<!-- GAME PLAY -->
+	<div id="game-play">
+		<div id="game-window">
+			<img id="dog1" class="dog" src="images/dog1.png">
+			<img id="dog2" class="dog" src="images/dog2.png">
+			<img id="dog3" class="dog" src="images/dog3.png">
+			<img id="dog4" class="dog" src="images/dog4.gif">
+
+			<img class="raccoon threat threat-1" src="images/raccoon.png">
+			<img class="hunger threat threat-2" src="images/hunger.png">
+			<img class="catcher threat threat-4-catcher" src="images/dog-catcher.png">
+			<img class="fleas threat threat-3" src="images/fleas.png">
+
+		</div>
+		<div id="toolbelt">
+			<div id="toolbelt-row1" >
+				<img id="food" class="toolbelt-item" src="images/food.png">
+				<img id="soap" class="toolbelt-item" src="images/soap.png">
+				<img id="cage" class="toolbelt-item" src="images/cage.png">
+				<img id="cash" class="toolbelt-item" src="images/cash.png">
+				<img id="coin" class="toolbelt-item" src="images/coin-bag.png">
+			</div>
+			<div id="toolbelt-row2">
+				<img id="food-cart" class="cart" src="images/cart.png">
+				<div id="level-background1" class="level-background">
+					<div id="food-level" class="supply-level">
+					</div>
+				</div>
+
+
+				<img id="soap-cart" class="cart" src="images/cart.png">
+				<div id="level-background2" class="level-background">
+					<div id="soap-level" class="supply-level">
+					</div>
+				</div>
+
+				<img id="cage-cart" class="cart" src="images/cart.png">
+				<div id="level-background3" class="level-background">
+					<div id="cage-level" class="supply-level">
+					</div>
+				</div>
+
+				<img id="cash-cart" class="cart" src="images/cart.png">
+				<div id="level-background4" class="level-background">
+					<div id="cash-level" class="supply-level">
+					</div>
+				</div>
+
+				<div id="coin-count">
+					100
+				</div>
+
+			</div>			
+		</div>
+	</div>
+
+		
+	</div>
+
+</body>
+
+</html>
