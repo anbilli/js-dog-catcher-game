@@ -98,8 +98,8 @@ button {
 }
 
 .toolbelt-item {
-	height: 60px;
-	width: 60px;
+	/*height: 60px;*/
+	/*width: 60px;*/
 	padding: 10px;
 }
 
@@ -112,7 +112,7 @@ button {
 	left: 40px;
 }
 
-#level-background1 {
+#supply-level-background1 {
 	left: 60px;
 }
 
@@ -125,7 +125,7 @@ button {
 	left: 180px;
 }
 
-#level-background2 {
+#supply-level-background2 {
 	left: 200px;
 }
 
@@ -138,7 +138,7 @@ button {
 	left: 320px;
 }
 
-#level-background3 {
+#supply-level-background3 {
 	left: 340px;
 }
 
@@ -151,13 +151,13 @@ button {
 	left: 460px;
 }
 
-#level-background4 {
+#supply-level-background4 {
 	left: 480px;
 }
 
 #coin {
 	position: absolute;
-	left: 595px;
+	left: 600px;
 }
 
 #coin-count {
@@ -166,7 +166,6 @@ button {
 	top: 685;
 	color: white;
 	font-size: 20px;
-
 }
 
 .cart {
@@ -176,27 +175,24 @@ button {
 	top: 690px;
 }
 
-.level-background {
+.supply-level-background {
 	position: absolute;
 	background-color: red;
 	top: 695px;
 	height: 10px;
-	width: 70px;
+	width: 70px; 
 	border-radius: 3px;
 }
 
 .supply-level {
 	background-color: green;
 	height: 10px;
-	width: 50px;
-	border-top-left-radius: 3px;
-	border-bottom-left-radius: 3px;
+	width: 70px; /* dynamic */
+	border-radius: 3px; /* conditional */
+	/*border-top-left-radius: 3px;*/
+	/*border-bottom-left-radius: 3px;*/
 }
 
-
-#level-background1 {
-	left: 
-}
 
 /* DOGS */
 
@@ -227,12 +223,57 @@ button {
 }
 
 
+/* DOG HEALTH */
+
+.health-level-background {
+	position: absolute;
+	background-color: red;
+	height: 70px;
+	width: 10px;
+	border-radius: 3px;
+}
+
+.health-level {
+	background-color: green;
+	height: 60px; /* dynamic */
+	width: 10px;
+	position: absolute;
+	top: 10px; /* dynamic */
+	border-radius: 3px; /* conditional */
+	/*left: 10px;*/
+	/*border-bottom-left-radius: 3px;*/
+	/*border-bottom-right-radius: 3px;	*/
+}
+
+#health-level-background1 {
+	top: 445px;
+	left: 475px;
+}
+
+#health-level-background2 {
+	top: 500px;
+	left: 85px;
+}
+
+#health-level-background3 {
+	top: 330px;
+	left: 470px;
+}
+
+#health-level-background4 {
+	top: 520px;
+	left: 430px;
+}
+
+
 /* THREATS */
 
 .threat {
 	height: 60px;
 	width: 60px;
 	position: absolute;
+	display: none;
+	/*background-color: blue;*/
 }
 
 .catcher {
@@ -240,42 +281,44 @@ button {
 	width: 120px;
 }
 
-.threat-1 , .threat-1-catcher {
+.dog1-threat , .dog1-threat-catcher {
 	top: 390px;
 	left: 520px;
 }
 
-.threat-2 {
+.dog2-threat {
 	top: 430px;
 	left: 105px;
 }
 
-.threat-2-catcher {
+.dog2-threat-catcher {
 	top: 400px;
 	left: 20px;
 }
 
 
-.threat-3 {
+.dog3-threat {
 	top: 310px;
 	left: 320px;
 }
 
-.threat-3-catcher {
+.dog3-threat-catcher {
 	top: 270px;
 	left: 280px;
 }
 
-.threat-4 {
+.dog4-threat {
 	top: 530px;
 	left: 280px;
 }
 
-.threat-4-catcher {
+.dog4-threat-catcher {
 	top: 480px;
 	left: 230px;
 }
 
-
+div {
+	/*cursor: url(../images/food.png), pointer;*/
+}
 
 

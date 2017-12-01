@@ -46,52 +46,83 @@
 	<div id="game-play">
 		<div id="game-window">
 			<img id="dog1" class="dog" src="images/dog1.png">
+				<div id="health-level-background1" class="health-level-background">
+					<div id="health-level1" class="health-level"></div>
+				</div>
 			<img id="dog2" class="dog" src="images/dog2.png">
+				<div id="health-level-background2" class="health-level-background">
+					<div id="health-level2" class="health-level"></div>
+				</div>
 			<img id="dog3" class="dog" src="images/dog3.png">
+				<div id="health-level-background3" class="health-level-background">
+					<div id="health-level3" class="health-level"></div>
+				</div>
 			<img id="dog4" class="dog" src="images/dog4.gif">
+				<div id="health-level-background4" class="health-level-background">
+					<div id="health-level4" class="health-level"></div>
+				</div>
 
-			<img class="raccoon threat threat-1" src="images/raccoon.png">
-			<img class="hunger threat threat-2" src="images/hunger.png">
-			<img class="catcher threat threat-4-catcher" src="images/dog-catcher.png">
-			<img class="fleas threat threat-3" src="images/fleas.png">
+			<div id="threat-box1" class='threat-box'>
+				<img id="dog1-catcher" class="catcher threat dog1-threat-catcher" src="images/dog-catcher.png">
+				<img id="dog1-fleas" class="fleas threat dog1-threat" src="images/fleas.png">
+				<img id="dog1-hunger" class="hunger threat dog1-threat" src="images/hunger.png">
+				<img id="dog1-raccoon" class="raccoon threat dog1-threat" src="images/raccoon.png">
+			</div>
+
+			<div id="threat-box2" class='threat-box'>
+				<img id="dog2-catcher" class="catcher threat dog2-threat-catcher" src="images/dog-catcher.png">			
+				<img id="dog2-fleas" class="fleas threat dog2-threat" src="images/fleas.png">
+				<img id="dog2-hunger" class="hunger threat dog2-threat" src="images/hunger.png">
+				<img id="dog2-raccoon" class="raccoon threat dog2-threat" src="images/raccoon.png">
+			</div>
+
+			<div id="threat-box3" class='threat-box'>
+				<img id="dog3-catcher" class="catcher threat dog3-threat-catcher" src="images/dog-catcher.png">			
+				<img id="dog3-fleas" class="fleas threat dog3-threat" src="images/fleas.png">
+				<img id="dog3-hunger" class="hunger threat dog3-threat" src="images/hunger.png">
+				<img id="dog3-raccoon" class="raccoon threat dog3-threat" src="images/raccoon.png">
+			</div>
+
+			<div id="threat-box4" class='threat-box'>
+				<img id="dog4-catcher" class="catcher threat dog4-threat-catcher" src="images/dog-catcher.png">
+				<img id="dog4-fleas" class="fleas threat dog4-threat" src="images/fleas.png">
+				<img id="dog4-hunger" class="hunger threat dog4-threat" src="images/hunger.png">
+				<img id="dog4-raccoon" class="raccoon threat dog4-threat" src="images/raccoon.png">
+			</div>
 
 		</div>
 		<div id="toolbelt">
 			<div id="toolbelt-row1" >
-				<img id="food" class="toolbelt-item" src="images/food.png">
-				<img id="soap" class="toolbelt-item" src="images/soap.png">
-				<img id="cage" class="toolbelt-item" src="images/cage.png">
-				<img id="cash" class="toolbelt-item" src="images/cash.png">
-				<img id="coin" class="toolbelt-item" src="images/coin-bag.png">
+				<img id="food" class="toolbelt-item tool" src="images/food.png">
+				<img id="soap" class="toolbelt-item tool" src="images/soap.png">
+				<img id="cage" class="toolbelt-item tool" src="images/cage.png">
+				<img id="cash" class="toolbelt-item tool" src="images/cash.png">
+				<img id="coin" class="toolbelt-item" src="images/coinbag.png">
 			</div>
 			<div id="toolbelt-row2">
 				<img id="food-cart" class="cart" src="images/cart.png">
-				<div id="level-background1" class="level-background">
-					<div id="food-level" class="supply-level">
-					</div>
+				<div id="supply-level-background1" class="supply-level-background">
+					<div id="food-level" class="supply-level"></div>
 				</div>
 
 
 				<img id="soap-cart" class="cart" src="images/cart.png">
-				<div id="level-background2" class="level-background">
-					<div id="soap-level" class="supply-level">
-					</div>
+				<div id="supply-level-background2" class="supply-level-background">
+					<div id="soap-level" class="supply-level"></div>
 				</div>
 
 				<img id="cage-cart" class="cart" src="images/cart.png">
-				<div id="level-background3" class="level-background">
-					<div id="cage-level" class="supply-level">
-					</div>
+				<div id="supply-level-background3" class="supply-level-background">
+					<div id="cage-level" class="supply-level"></div>
 				</div>
 
 				<img id="cash-cart" class="cart" src="images/cart.png">
-				<div id="level-background4" class="level-background">
-					<div id="cash-level" class="supply-level">
-					</div>
+				<div id="supply-level-background4" class="supply-level-background">
+					<div id="cash-level" class="supply-level"></div>
 				</div>
 
 				<div id="coin-count">
-					100
+					0
 				</div>
 
 			</div>			
