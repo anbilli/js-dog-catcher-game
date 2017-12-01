@@ -17,6 +17,7 @@ var startThreatIntervals = [null, null, null, null];
 var endThreatTimeouts = [null, null, null, null];
 var supplyLevels = {'cash': _MAX_SUPPLY, 'soap': _MAX_SUPPLY,
 					'food': _MAX_SUPPLY, 'cage': _MAX_SUPPLY};
+var savedDogs = 0;
 var coinCount = 0;
 
 
@@ -169,6 +170,7 @@ function rescueDog(dogId) {
 	var threat = currentThreat[dogId - 1];
 	if (threat != null && matches(threat, currentTool)) {
 		console.log('You rescued a dog!');
+		savedDogs += 1;
 
 		// Remove threat
 		var threatId = '#dog' + dogId + "-" + threat;
@@ -204,6 +206,7 @@ function hurtDog(dogId) {
 	if (health[dogId - 1] == 0) {
 		console.log('A dog died!');
 		clearInterval(startThreatIntervals[dogId - 1]);
+		$('#dog' + dogId + "-skull").show();
 
 		var allDead = true;
 		for (var i = 0; i < health.length; ++i) {
@@ -259,6 +262,7 @@ function updateCoins(amount) {
 // Gameover
 function gameover() {
 	$("#gameover-modal").modal();
+	$("#saved-dogs").text(savedDogs);
 
 	// Reset stats
 	currentThreat = [null, null, null, null];
@@ -269,6 +273,7 @@ function gameover() {
 	supplyLevels = {'cash': _MAX_SUPPLY, 'soap': _MAX_SUPPLY,
 						'food': _MAX_SUPPLY, 'cage': _MAX_SUPPLY};
 	updateCoins(-coinCount);
+	savedDogs = 0;
 
 	// Reset bars
 	for (var i = 0; i < _TOOLS.length; ++i) {
