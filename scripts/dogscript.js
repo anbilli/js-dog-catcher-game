@@ -280,7 +280,8 @@ function gameover() {
 	updateCoins(-coinCount);
 	savedDogs = 0;
 
-	// Reset bars
+	// Reset images
+	$('.threat').hide();
 	for (var i = 0; i < _TOOLS.length; ++i) {
 		replenishSupply($('#' + _TOOLS[i] + '-level'));
 	}
