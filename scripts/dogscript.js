@@ -34,7 +34,19 @@ $(document).ready(function() {
 	// Listen for threat clicks
 	$('.threat-box').click(function() {
 		rescueDog(this.id[10]);
-	})
+	});
+
+	// Listen for shopping cart selections
+	$('.cart').click(function() {
+		var tool = this.id.replace('-cart', '');
+		$('#modal-supply').text(tool);
+	});
+
+	// Listen for modal yes response
+	$('#buy-yes-btn').click(function() {
+		var tool = $('#modal-supply').text();
+		updateSupply(tool, 'replenish');
+	});
 
 
 });
@@ -99,33 +111,35 @@ function floatThreat(id) {
 
 // Select toolbelt item
 function selectTool(tool) {
-	if (supplyLevels[tool] == 0) {
-		alert('You have no ' + tool + ' left!');
-	}
-	else {
 		if (currentTool == null) {
-			$('div').css("cursor", "url('images/" + tool + ".png'), pointer");
-			currentTool = tool;
+			if (supplyLevels[tool] == 0) {
+				alert('You have no ' + tool + ' supply left!');
+			}
+			else {
+				$('div').css("cursor", "url('images/" + tool + ".png'), pointer");
+				currentTool = tool;
+			}
 		}
 		else if (currentTool == tool) {
 			$('div').css("cursor", "default");		
 			currentTool = null;
 		}
-	}
 }
 
 function rescueDog(dogId) {
 	var threat = currentThreat[dogId - 1];
 	if (threat != null && matches(threat, currentTool)) {
-		alert('You rescued a dog!');
+		console.log('You rescued a dog!');
+
+		// Remove threat
 		var threatId = '#dog' + dogId + "-" + threat;
 		currentThreat[dogId - 1] = null;
 		$(threatId).hide();
 		clearTimeout(endThreatTimeouts[dogId - 1]);
 
-		supplyLevels[currentTool] -= 1;
-		coinCount += _COIN_EARNING;
-
+		// Expend supply and earn coins
+		updateSupply(currentTool, 'expend');
+		updateCoins(_COIN_EARNING);
 	}
 
 }
@@ -136,19 +150,71 @@ function matches(threat, tool) {
 
 function hurtDog(dogId) {
 	health[dogId - 1] -= 1;
+
+	// Update health bar
+	var height = Math.floor(70 * (health[dogId - 1] / _MAX_HEALTH));
+	var top = 70 - height;
+	var healthBar = $('#health-level' + dogId);
+	healthBar.css('height', String(height) + 'px');
+	healthBar.css('top', String(top) + 'px');
+	healthBar.css('border-top-right-radius', '0px');
+	healthBar.css('border-top-left-radius', '0px');
+
+	// Check for dead dogs
 	if (health[dogId - 1] == 0) {
-		// alert('A dog died!');
+		console.log('A dog died!');
 		clearInterval(startThreatIntervals[dogId - 1]);
+
+		var allDead = true;
+		for (var i = 0; i < health.length; ++i) {
+			if (health[i] > 0) { allDead = false; }
+		}
+		if (allDead == true) {
+			gameover();
+		}
 	}
+}
+
+function updateSupply(tool, task) {
+	var supplyBar = $('#' + tool + '-level');
+	if (task == 'expend') {
+		supplyLevels[tool] -= 1;
+		
+		// Update supply bar
+		var width = Math.floor(70 * (supplyLevels[tool] / _MAX_SUPPLY));
+		supplyBar.css('width', String(width) + 'px');
+		supplyBar.css('border-top-right-radius', '0px');
+		supplyBar.css('border-bottom-right-radius', '0px');
+	}
+	else if (task == 'replenish') {
+		if (coinCount < _SUPPLY_COST) {
+			alert("You don't have enough coins to buy supplies!");
+		}
+		else {
+			updateCoins(-_SUPPLY_COST);
+			supplyLevels[currentTool] = _MAX_SUPPLY;
+
+			// Update supply bar
+			supplyBar.css('width', '70px');
+			supplyBar.css('border-top-right-radius', '3px');
+			supplyBar.css('border-bottom-right-radius', '3px');		
+		}
+	}
+}
+
+function gameover() {
+	// alert('GAMEOVER');
+}
+
+function updateCoins(amount) {
+	coinCount += amount;
+	$('#coin-count').text(coinCount);
 }
 
 
 
+function test(id) {
 
-
-
-function test3() {
-	window.alert('hi');	
 }
 
 

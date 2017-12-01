@@ -6,10 +6,12 @@
 <script src='scripts/jquery.min.js'></script>
 <script src='scripts/jqfloat.min.js'></script>
 <script src='scripts/dogscript.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="style/style.css">
-<link href="https://fonts.googleapis.com/css?family=Pacifico|Alegreya+Sans" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico|Alegreya+Sans">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
 <!-- HTML -->
 <body>
@@ -90,7 +92,14 @@
 				<img id="dog4-raccoon" class="raccoon threat dog4-threat" src="images/raccoon.png">
 			</div>
 
+			<div id="buy-modal" class="modal">
+				<p> Are you sure you want to replenish your <span id='modal-supply'></span>
+					supply for 15 coins? </p>
+		  		<a id="buy-yes-btn" href="#" rel="modal:close">Yes</a> <a id="buy-no-btn" href="#" rel="modal:close">No</a>
+			</div>
+
 		</div>
+
 		<div id="toolbelt">
 			<div id="toolbelt-row1" >
 				<img id="food" class="toolbelt-item tool" src="images/food.png">
@@ -100,23 +109,31 @@
 				<img id="coin" class="toolbelt-item" src="images/coinbag.png">
 			</div>
 			<div id="toolbelt-row2">
-				<img id="food-cart" class="cart" src="images/cart.png">
+				<a href="#buy-modal" rel="modal:open">
+					<img id="food-cart" class="cart" src="images/cart.png">
+				</a>
 				<div id="supply-level-background1" class="supply-level-background">
 					<div id="food-level" class="supply-level"></div>
 				</div>
 
 
-				<img id="soap-cart" class="cart" src="images/cart.png">
+				<a href="#buy-modal" rel="modal:open">
+					<img id="soap-cart" class="cart" src="images/cart.png">
+				</a>
 				<div id="supply-level-background2" class="supply-level-background">
 					<div id="soap-level" class="supply-level"></div>
 				</div>
 
-				<img id="cage-cart" class="cart" src="images/cart.png">
+				<a href="#buy-modal" rel="modal:open">
+					<img id="cage-cart" class="cart" src="images/cart.png">
+				</a>
 				<div id="supply-level-background3" class="supply-level-background">
 					<div id="cage-level" class="supply-level"></div>
 				</div>
 
-				<img id="cash-cart" class="cart" src="images/cart.png">
+				<a href="#buy-modal" rel="modal:open">
+					<img id="cash-cart" class="cart" src="images/cart.png">
+				</a>
 				<div id="supply-level-background4" class="supply-level-background">
 					<div id="cash-level" class="supply-level"></div>
 				</div>
