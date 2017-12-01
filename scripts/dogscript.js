@@ -7,9 +7,9 @@ _SUPPLY_COST = 15;
 _COIN_EARNING = 3;
 _THREATS = ['catcher', 'fleas', 'hunger', 'raccoon'];
 _TOOLS = ['cash', 'soap', 'food', 'cage'];
+_NUM_DOGS = 4;
 
 // Global Variables
-// var hasThreat = [false, false, false, false];
 var currentThreat = [null, null, null, null];
 var currentTool = null;
 var health = [_MAX_HEALTH, _MAX_HEALTH, _MAX_HEALTH, _MAX_HEALTH];
@@ -22,30 +22,68 @@ var coinCount = 0;
 
 // Execute on page load
 $(document).ready(function() {
+	//// Introduction ////
 
-	// Randomly generate threats
-	generateThreats();
+	// Intro pages navigation
+	$('#instructions-btn1').click(function() {
+		$('#title-page').hide();
+		$('#instructions-page1').show();
+	});
 
-	// Listen for toolbelt item selections
+	$('#back-btn2').click(function() {
+		$('#instructions-page1').hide();
+		$('#title-page').show();
+	});
+	
+	// Start game play
+	$('#play-btn1').click(function() {
+		$('#game-intro').hide();
+		$('#title-page').hide();
+		$('#game-play').show();
+		generateThreats();
+	});
+	$('#play-btn2').click(function() {
+		$('#game-intro').hide();
+		$('#instructions-page1').hide();
+		$('#game-play').show();
+		generateThreats();
+	});
+
+
+	//// Game Play ////
+
+	// Toolbelt item selections
 	$('.tool').click(function() {
 		selectTool(this.id);
 	});
 
-	// Listen for threat clicks
+	// Threat elimination
 	$('.threat-box').click(function() {
 		rescueDog(this.id[10]);
 	});
 
-	// Listen for shopping cart selections
+	// Purchase supplies
 	$('.cart').click(function() {
 		var tool = this.id.replace('-cart', '');
 		$('#modal-supply').text(tool);
 	});
 
-	// Listen for modal yes response
+	// Purchase yes response
 	$('#buy-yes-btn').click(function() {
 		var tool = $('#modal-supply').text();
 		updateSupply(tool, 'replenish');
+	});
+
+	// Restart game yes response
+	$('#restart-yes-btn').click(function() {
+		generateThreats();
+	});
+
+	// Restart game no response
+	$('#restart-no-btn').click(function() {
+		$('#game-play').hide();
+		$('#title-page').show();
+		$('#game-intro').show();
 	});
 
 
@@ -126,6 +164,7 @@ function selectTool(tool) {
 		}
 }
 
+// Rescue dog using tool
 function rescueDog(dogId) {
 	var threat = currentThreat[dogId - 1];
 	if (threat != null && matches(threat, currentTool)) {
@@ -141,17 +180,18 @@ function rescueDog(dogId) {
 		updateSupply(currentTool, 'expend');
 		updateCoins(_COIN_EARNING);
 	}
-
 }
 
+// Checks whether tool matches threat
 function matches(threat, tool) {
 	return _THREATS.indexOf(threat) == _TOOLS.indexOf(tool);
 }
 
+// Dog impacted by threat
 function hurtDog(dogId) {
 	health[dogId - 1] -= 1;
 
-	// Update health bar
+	// Reduce health bar
 	var height = Math.floor(70 * (health[dogId - 1] / _MAX_HEALTH));
 	var top = 70 - height;
 	var healthBar = $('#health-level' + dogId);
@@ -175,6 +215,7 @@ function hurtDog(dogId) {
 	}
 }
 
+// Reduce or replenish supply according to task
 function updateSupply(tool, task) {
 	var supplyBar = $('#' + tool + '-level');
 	if (task == 'expend') {
@@ -190,33 +231,57 @@ function updateSupply(tool, task) {
 		if (coinCount < _SUPPLY_COST) {
 			alert("You don't have enough coins to buy supplies!");
 		}
+		else if (supplyLevels[tool] == _MAX_SUPPLY) {
+			alert("You already have maximum " + tool + " supply!");
+		}
 		else {
 			updateCoins(-_SUPPLY_COST);
-			supplyLevels[currentTool] = _MAX_SUPPLY;
+			supplyLevels[tool] = _MAX_SUPPLY;
 
 			// Update supply bar
-			supplyBar.css('width', '70px');
-			supplyBar.css('border-top-right-radius', '3px');
-			supplyBar.css('border-bottom-right-radius', '3px');		
+			replenishSupply(supplyBar);	
 		}
 	}
 }
 
-function gameover() {
-	// alert('GAMEOVER');
+function replenishSupply(id) {
+	id.css('width', '70px');
+	id.css('border-top-right-radius', '3px');
+	id.css('border-bottom-right-radius', '3px');	
 }
 
+// Adjust total coins by given amount
 function updateCoins(amount) {
 	coinCount += amount;
 	$('#coin-count').text(coinCount);
 }
 
+// Gameover
+function gameover() {
+	$("#gameover-modal").modal();
 
+	// Reset stats
+	currentThreat = [null, null, null, null];
+	currentTool = null;
+	health = [_MAX_HEALTH, _MAX_HEALTH, _MAX_HEALTH, _MAX_HEALTH];
+	startThreatIntervals = [null, null, null, null];
+	endThreatTimeouts = [null, null, null, null];
+	supplyLevels = {'cash': _MAX_SUPPLY, 'soap': _MAX_SUPPLY,
+						'food': _MAX_SUPPLY, 'cage': _MAX_SUPPLY};
+	updateCoins(-coinCount);
 
-function test(id) {
-
+	// Reset bars
+	for (var i = 0; i < _TOOLS.length; ++i) {
+		replenishSupply($('#' + _TOOLS[i] + '-level'));
+	}
+	for (var i = 1; i <= _NUM_DOGS; ++i) {
+		var healthBar = $('#health-level' + i);
+		healthBar.css('height', '70px');
+		healthBar.css('top', '0px');
+		healthBar.css('border-top-right-radius', '3px');
+		healthBar.css('border-top-left-radius', '3px');
+	}
 }
-
 
 
 

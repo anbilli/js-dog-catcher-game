@@ -1,10 +1,12 @@
 /* MAIN WINDOWS */
+body {
+	font-family: "Alegreya Sans";
+}
+
 #outer-container {
 	width: 700px;
 	height: 700px;
 	border: 3px solid black;
-	
-	font-family: "Alegreya Sans";
 	background-color: white;
 }
 
@@ -14,7 +16,7 @@
 	background-repeat: no-repeat;
 	height: 700px;
 	width: 700px;
-	display: none;
+	/*display: none;*/
 }
 
 #title-page {
@@ -22,12 +24,12 @@
 }
 
 #instructions-page1 {
-	/*display: none;*/
+	display: none;
 }
 
 
 #game-play {
-	/*display: none;*/
+	display: none;
 }
 
 #game-window {
@@ -38,7 +40,7 @@
 }
 
 
-/* INTRODUCTION */
+/* TITLE PAGE */
 .header {
 	font-family: Pacifico;
 	margin: 0px;
@@ -86,7 +88,6 @@ button {
 	text-align: center;
 	font-size: 20px;
 }
-
 
 
 
@@ -316,8 +317,19 @@ button {
 	left: 230px;
 }
 
-div {
-	/*cursor: url(../images/food.png), pointer;*/
+
+/* MODAL */
+.modal-footer {
+	margin-left: 90px;
 }
 
-
+.modal-btn {
+	text-decoration: none;
+	color: white;
+	background-color: #66c2ff;
+	width: 100%;
+	margin: auto 10px auto 10px; 
+	padding: 5px 30px 5px 30px;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+}
