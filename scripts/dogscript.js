@@ -25,6 +25,11 @@ var coinCount = 0;
 $(document).ready(function() {
 	//// Introduction ////
 
+	// Play sound
+	var soundtrack = document.getElementById('soundtrack');
+	soundtrack.load();
+	soundtrack.play();
+
 	// Intro pages navigation
 	$('#instructions-btn1').click(function() {
 		$('#title-page').hide();

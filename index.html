@@ -16,155 +16,156 @@
 <!-- HTML -->
 <body>
 	<div id="outer-container">
+
+		<audio id="soundtrack" loop>
+   			<source src="audio/trotting.wav" type="audio/wav" />
+		</audio>
 	
-	<!-- INTRODUCTION -->
-	<div id="game-intro">
-		<div id="title-page">
-			<h1 id="game-title" class="header">One of the Pack</h1>
-			<button id="instructions-btn1">
-				Instructions
-			</button>
-			<button id="play-btn1">
-				Play
-			</button>
+		<!-- INTRODUCTION -->
+		<div id="game-intro">
+			<div id="title-page">
+				<h1 id="game-title" class="header">One of the Pack</h1>
+				<button id="instructions-btn1">
+					Instructions
+				</button>
+				<button id="play-btn1">
+					Play
+				</button>
+			</div>
+			<div id="instructions-page1">
+				<h1 id="instructions-title" class="header">How to Play</h1>
+				
+				<div id="instructions">
+					Congrats! You’ve recently moved to the city and have befriended a pack of stray dogs in a nearby park. Unfortunately, the dogs are facing some challenges like hunger, rabid raccoons, and animal control. As the newest member of the pack, your job is to help save these dogs by grabbing items from your tool belt and applying them to the threats in the park. Each time you rescue a dog, you earn some coins which in turn can be used to purchase more supplies for your tool belt. If you don't save a dog from a threat, its health will diminish and eventually it will die! 
+				</div>
+
+				<button id="back-btn2">
+					Back
+				</button>
+				<button id="play-btn2">
+					Play
+				</button>
+			</div>
 		</div>
-		<div id="instructions-page1">
-			<h1 id="instructions-title" class="header">How to Play</h1>
-			
-			<div id="instructions">
-				Congrats! You’ve recently moved to the city and have befriended a pack of stray dogs in a nearby park. Unfortunately, the dogs are facing some challenges like hunger, rabid raccoons, and animal control. As the newest member of the pack, your job is to help save these dogs by grabbing items from your tool belt and applying them to the threats in the park. Each time you rescue a dog, you earn some coins which in turn can be used to purchase more supplies for your tool belt. If you don't save a dog from a threat, its health will diminish and eventually it will die! 
+
+		<!-- GAME PLAY -->
+		<div id="game-play">
+			<div id="game-window">
+				<img id="dog1" class="dog" src="images/dog1.png">
+					<div id="health-level-background1" class="health-level-background">
+						<div id="health-level1" class="health-level"></div>
+					</div>
+				<img id="dog2" class="dog" src="images/dog2.png">
+					<div id="health-level-background2" class="health-level-background">
+						<div id="health-level2" class="health-level"></div>
+					</div>
+				<img id="dog3" class="dog" src="images/dog3.png">
+					<div id="health-level-background3" class="health-level-background">
+						<div id="health-level3" class="health-level"></div>
+					</div>
+				<img id="dog4" class="dog" src="images/dog4.gif">
+					<div id="health-level-background4" class="health-level-background">
+						<div id="health-level4" class="health-level"></div>
+					</div>
+
+				<div id="threat-box1" class='threat-box'>
+					<img id="dog1-catcher" class="catcher threat dog1-threat-catcher" src="images/dog-catcher.png">
+					<img id="dog1-fleas" class="threat dog1-threat" src="images/fleas.png">
+					<img id="dog1-hunger" class="threat dog1-threat" src="images/hunger.png">
+					<img id="dog1-raccoon" class="threat dog1-threat" src="images/raccoon.png">
+					<img id="dog1-skull" class="threat dog1-threat" src="images/skull.png">
+				</div>
+
+				<div id="threat-box2" class='threat-box'>
+					<img id="dog2-catcher" class="catcher threat dog2-threat-catcher" src="images/dog-catcher.png">			
+					<img id="dog2-fleas" class="threat dog2-threat" src="images/fleas.png">
+					<img id="dog2-hunger" class="threat dog2-threat" src="images/hunger.png">
+					<img id="dog2-raccoon" class="threat dog2-threat" src="images/raccoon.png">
+					<img id="dog2-skull" class="threat dog2-threat" src="images/skull.png">
+				</div>
+
+				<div id="threat-box3" class='threat-box'>
+					<img id="dog3-catcher" class="catcher threat dog3-threat-catcher" src="images/dog-catcher.png">			
+					<img id="dog3-fleas" class="threat dog3-threat" src="images/fleas.png">
+					<img id="dog3-hunger" class="threat dog3-threat" src="images/hunger.png">
+					<img id="dog3-raccoon" class="threat dog3-threat" src="images/raccoon.png">
+					<img id="dog3-skull" class="threat dog3-threat" src="images/skull.png">
+				</div>
+
+				<div id="threat-box4" class='threat-box'>
+					<img id="dog4-catcher" class="catcher threat dog4-threat-catcher" src="images/dog-catcher.png">
+					<img id="dog4-fleas" class="threat dog4-threat" src="images/fleas.png">
+					<img id="dog4-hunger" class="threat dog4-threat" src="images/hunger.png">
+					<img id="dog4-raccoon" class="threat dog4-threat" src="images/raccoon.png">
+					<img id="dog4-skull" class="threat dog4-threat" src="images/skull.png">
+				</div>
+
+				<div id="buy-modal" class="modal">
+					<p> Are you sure you want to replenish your <span id='modal-supply'></span>
+						supply for 15 coins? </p>
+					<div class="modal-footer">
+			  			<a id="buy-yes-btn" class='modal-btn' href="#" rel="modal:close">Yes</a>
+			  			<a id="buy-no-btn" class='modal-btn' href="#" rel="modal:close">No</a>
+					</div>
+				</div>
+				
+				<div id="gameover-modal" class="modal">
+					<h1> GAME OVER! </h1>
+					<h2> You saved <span id='saved-dogs'></span> dogs. Do you want to play again?</h2>
+					<div class="modal-footer">
+			  			<a id="restart-yes-btn" class='modal-btn' href="#" rel="modal:close">Yes</a>
+			  			<a id="restart-no-btn" class='modal-btn' href="#" rel="modal:close">No</a>
+					</div>
+				</div>
+
 			</div>
 
-			<button id="back-btn2">
-				Back
-			</button>
-			<button id="play-btn2">
-				Play
-			</button>
+			<div id="toolbelt">
+				<div id="toolbelt-row1" >
+					<img id="food" class="toolbelt-item tool" src="images/food.png">
+					<img id="soap" class="toolbelt-item tool" src="images/soap.png">
+					<img id="cage" class="toolbelt-item tool" src="images/cage.png">
+					<img id="cash" class="toolbelt-item tool" src="images/cash.png">
+					<img id="coin" class="toolbelt-item" src="images/coinbag.png">
+				</div>
+				<div id="toolbelt-row2">
+					<a href="#buy-modal" rel="modal:open">
+						<img id="food-cart" class="cart" src="images/cart.png">
+					</a>
+					<div id="supply-level-background1" class="supply-level-background">
+						<div id="food-level" class="supply-level"></div>
+					</div>
+
+
+					<a href="#buy-modal" rel="modal:open">
+						<img id="soap-cart" class="cart" src="images/cart.png">
+					</a>
+					<div id="supply-level-background2" class="supply-level-background">
+						<div id="soap-level" class="supply-level"></div>
+					</div>
+
+					<a href="#buy-modal" rel="modal:open">
+						<img id="cage-cart" class="cart" src="images/cart.png">
+					</a>
+					<div id="supply-level-background3" class="supply-level-background">
+						<div id="cage-level" class="supply-level"></div>
+					</div>
+
+					<a href="#buy-modal" rel="modal:open">
+						<img id="cash-cart" class="cart" src="images/cart.png">
+					</a>
+					<div id="supply-level-background4" class="supply-level-background">
+						<div id="cash-level" class="supply-level"></div>
+					</div>
+
+					<div id="coin-count">
+						0
+					</div>
+
+				</div>			
+			</div>
 		</div>
 	</div>
-
-	<!-- GAME PLAY -->
-	<div id="game-play">
-		<div id="game-window">
-			<img id="dog1" class="dog" src="images/dog1.png">
-				<div id="health-level-background1" class="health-level-background">
-					<div id="health-level1" class="health-level"></div>
-				</div>
-			<img id="dog2" class="dog" src="images/dog2.png">
-				<div id="health-level-background2" class="health-level-background">
-					<div id="health-level2" class="health-level"></div>
-				</div>
-			<img id="dog3" class="dog" src="images/dog3.png">
-				<div id="health-level-background3" class="health-level-background">
-					<div id="health-level3" class="health-level"></div>
-				</div>
-			<img id="dog4" class="dog" src="images/dog4.gif">
-				<div id="health-level-background4" class="health-level-background">
-					<div id="health-level4" class="health-level"></div>
-				</div>
-
-			<div id="threat-box1" class='threat-box'>
-				<img id="dog1-catcher" class="catcher threat dog1-threat-catcher" src="images/dog-catcher.png">
-				<img id="dog1-fleas" class="threat dog1-threat" src="images/fleas.png">
-				<img id="dog1-hunger" class="threat dog1-threat" src="images/hunger.png">
-				<img id="dog1-raccoon" class="threat dog1-threat" src="images/raccoon.png">
-				<img id="dog1-skull" class="threat dog1-threat" src="images/skull.png">
-			</div>
-
-			<div id="threat-box2" class='threat-box'>
-				<img id="dog2-catcher" class="catcher threat dog2-threat-catcher" src="images/dog-catcher.png">			
-				<img id="dog2-fleas" class="threat dog2-threat" src="images/fleas.png">
-				<img id="dog2-hunger" class="threat dog2-threat" src="images/hunger.png">
-				<img id="dog2-raccoon" class="threat dog2-threat" src="images/raccoon.png">
-				<img id="dog2-skull" class="threat dog2-threat" src="images/skull.png">
-			</div>
-
-			<div id="threat-box3" class='threat-box'>
-				<img id="dog3-catcher" class="catcher threat dog3-threat-catcher" src="images/dog-catcher.png">			
-				<img id="dog3-fleas" class="threat dog3-threat" src="images/fleas.png">
-				<img id="dog3-hunger" class="threat dog3-threat" src="images/hunger.png">
-				<img id="dog3-raccoon" class="threat dog3-threat" src="images/raccoon.png">
-				<img id="dog3-skull" class="threat dog3-threat" src="images/skull.png">
-			</div>
-
-			<div id="threat-box4" class='threat-box'>
-				<img id="dog4-catcher" class="catcher threat dog4-threat-catcher" src="images/dog-catcher.png">
-				<img id="dog4-fleas" class="threat dog4-threat" src="images/fleas.png">
-				<img id="dog4-hunger" class="threat dog4-threat" src="images/hunger.png">
-				<img id="dog4-raccoon" class="threat dog4-threat" src="images/raccoon.png">
-				<img id="dog4-skull" class="threat dog4-threat" src="images/skull.png">
-			</div>
-
-			<div id="buy-modal" class="modal">
-				<p> Are you sure you want to replenish your <span id='modal-supply'></span>
-					supply for 15 coins? </p>
-				<div class="modal-footer">
-		  			<a id="buy-yes-btn" class='modal-btn' href="#" rel="modal:close">Yes</a>
-		  			<a id="buy-no-btn" class='modal-btn' href="#" rel="modal:close">No</a>
-				</div>
-			</div>
-			
-			<div id="gameover-modal" class="modal">
-				<h1> GAME OVER! </h1>
-				<h2> You saved <span id='saved-dogs'></span> dogs. Do you want to play again?</h2>
-				<div class="modal-footer">
-		  			<a id="restart-yes-btn" class='modal-btn' href="#" rel="modal:close">Yes</a>
-		  			<a id="restart-no-btn" class='modal-btn' href="#" rel="modal:close">No</a>
-				</div>
-			</div>
-
-		</div>
-
-		<div id="toolbelt">
-			<div id="toolbelt-row1" >
-				<img id="food" class="toolbelt-item tool" src="images/food.png">
-				<img id="soap" class="toolbelt-item tool" src="images/soap.png">
-				<img id="cage" class="toolbelt-item tool" src="images/cage.png">
-				<img id="cash" class="toolbelt-item tool" src="images/cash.png">
-				<img id="coin" class="toolbelt-item" src="images/coinbag.png">
-			</div>
-			<div id="toolbelt-row2">
-				<a href="#buy-modal" rel="modal:open">
-					<img id="food-cart" class="cart" src="images/cart.png">
-				</a>
-				<div id="supply-level-background1" class="supply-level-background">
-					<div id="food-level" class="supply-level"></div>
-				</div>
-
-
-				<a href="#buy-modal" rel="modal:open">
-					<img id="soap-cart" class="cart" src="images/cart.png">
-				</a>
-				<div id="supply-level-background2" class="supply-level-background">
-					<div id="soap-level" class="supply-level"></div>
-				</div>
-
-				<a href="#buy-modal" rel="modal:open">
-					<img id="cage-cart" class="cart" src="images/cart.png">
-				</a>
-				<div id="supply-level-background3" class="supply-level-background">
-					<div id="cage-level" class="supply-level"></div>
-				</div>
-
-				<a href="#buy-modal" rel="modal:open">
-					<img id="cash-cart" class="cart" src="images/cart.png">
-				</a>
-				<div id="supply-level-background4" class="supply-level-background">
-					<div id="cash-level" class="supply-level"></div>
-				</div>
-
-				<div id="coin-count">
-					0
-				</div>
-
-			</div>			
-		</div>
-	</div>
-
-		
-	</div>
-
 </body>
-
 </html>
+
