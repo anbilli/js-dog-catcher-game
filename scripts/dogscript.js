@@ -32,25 +32,54 @@ $(document).ready(function() {
 
 	// Intro pages navigation
 	$('#instructions-btn1').click(function() {
-		$('#title-page').hide();
-		$('#instructions-page1').show();
+		$('#title-page1').hide();
+		$('#instructions-page2').show();
 	});
 
 	$('#back-btn2').click(function() {
-		$('#instructions-page1').hide();
-		$('#title-page').show();
+		$('#instructions-page2').hide();
+		$('#title-page1').show();
 	});
-	
+	$('#next-btn2').click(function() {
+		$('#instructions-page2').hide();
+		$('#instructions-page3').show();
+	});
+
+	$('#back-btn3').click(function() {
+		$('#instructions-page3').hide();
+		$('#instructions-page2').show();
+	});
+	$('#next-btn3').click(function() {
+		$('#instructions-page3').hide();
+		$('#instructions-page4').show();
+	});
+
+	$('#back-btn4').click(function() {
+		$('#instructions-page4').hide();
+		$('#instructions-page3').show();
+	});
+	$('#next-btn4').click(function() {
+		$('#instructions-page4').hide();
+		$('#instructions-page5').show();
+	});
+
+	$('#back-btn5').click(function() {
+		$('#instructions-page5').hide();
+		$('#instructions-page4').show();
+	});
+
+
+
 	// Start game play
 	$('#play-btn1').click(function() {
 		$('#game-intro').hide();
-		$('#title-page').hide();
+		$('#title-page1').hide();
 		$('#game-play').show();
 		generateThreats();
 	});
-	$('#play-btn2').click(function() {
+	$('#play-btn5').click(function() {
 		$('#game-intro').hide();
-		$('#instructions-page1').hide();
+		$('#instructions-page5').hide();
 		$('#game-play').show();
 		generateThreats();
 	});
@@ -88,10 +117,9 @@ $(document).ready(function() {
 	// Restart game no response
 	$('#restart-no-btn').click(function() {
 		$('#game-play').hide();
-		$('#title-page').show();
+		$('#title-page1').show();
 		$('#game-intro').show();
-	});
-
+	}); 
 
 });
 
@@ -155,19 +183,18 @@ function floatThreat(id) {
 
 // Select toolbelt item
 function selectTool(tool) {
-		if (currentTool == null) {
-			if (supplyLevels[tool] == 0) {
-				alert('You have no ' + tool + ' supply left!');
-			}
-			else {
-				$('div').css("cursor", "url('images/" + tool + ".png'), pointer");
-				currentTool = tool;
-			}
-		}
-		else if (currentTool == tool) {
+		if (currentTool == tool) {
 			$('div').css("cursor", "default");		
 			currentTool = null;
 		}
+		else if (supplyLevels[tool] == 0) {
+			alert('You have no ' + tool + ' supply left!');
+		}
+		else {
+			$('div').css("cursor", "url('images/" + tool + ".png'), pointer");
+			currentTool = tool;
+		}
+		
 }
 
 // Rescue dog using tool
@@ -266,7 +293,12 @@ function updateCoins(amount) {
 
 // Gameover
 function gameover() {
-	$("#gameover-modal").modal();
+	$("#gameover-modal").modal({
+		escapeClose: false,
+		clickClose: false,
+		showClose: false
+		
+	});
 	$("#saved-dogs").text(savedDogs);
 
 	// Reset stats

@@ -23,29 +23,99 @@
 	
 		<!-- INTRODUCTION -->
 		<div id="game-intro">
-			<div id="title-page">
+			<div id="title-page1">
 				<h1 id="game-title" class="header">One of the Pack</h1>
-				<button id="instructions-btn1">
-					Instructions
-				</button>
-				<button id="play-btn1">
-					Play
-				</button>
+				<button id="instructions-btn1" class="left-btn"> Instructions </button>
+				<button id="play-btn1" class="right-btn"> Play </button>
 			</div>
-			<div id="instructions-page1">
-				<h1 id="instructions-title" class="header">How to Play</h1>
-				
-				<div id="instructions">
-					Congrats! You’ve recently moved to the city and have befriended a pack of stray dogs in a nearby park. Unfortunately, the dogs are facing some challenges like hunger, rabid raccoons, and animal control. As the newest member of the pack, your job is to help save these dogs by grabbing items from your tool belt and applying them to the threats in the park. Each time you rescue a dog, you earn some coins which in turn can be used to purchase more supplies for your tool belt. If you don't save a dog from a threat, its health will diminish and eventually it will die! 
+			<div id="instructions-page2" class="instructions">
+				<h1 class="header">How to Play</h1>		
+				<div class="description">
+					Congrats! You’ve recently moved to the city and have befriended a pack of stray dogs in a nearby park. Unfortunately, the dogs are facing some challenges and need your help! 
+				</div>
+				<div class="intro-dogs">
+					<img class="intro-dog" src="images/dog1.png">
+					<img class="intro-dog" src="images/dog2.png">
+					<img class="intro-dog" src="images/dog3.png">
+					<img class="intro-dog" src="images/dog4.gif">
 				</div>
 
-				<button id="back-btn2">
-					Back
-				</button>
-				<button id="play-btn2">
-					Play
-				</button>
+				<button id="back-btn2" class="left-btn intro-btn"> Back </button>
+				<button id="next-btn2" class="right-btn intro-btn"> Next </button>
 			</div>
+			<div id="instructions-page3" class="instructions">
+				<h1 class="header">How to Play</h1>		
+				<div class="description description3">
+					Threats will continuously pop up near each dog, but luckily, you are equipped with a toolbelt full of supplies to combat the threats. Here, each threat is displayed with its corresponding tool beneath it.
+				</div>
+				<div class="page3-row">
+					<div class="inline">
+						<div class="page3-title">Threats:</div>
+						<img src="#" style="visibility:hidden; height:25px;">
+					</div>
+					<div class="inline">
+						<div> Catcher </div> <img class="intro-threat" src="images/dog-catcher.png">
+					</div>
+
+					<div class="inline">
+						<div> Fleas </div> <img class="intro-threat" src="images/fleas.png">
+					</div>	
+					<div class="inline">
+						<div> Hunger </div> <img class="intro-threat" src="images/hunger.png">
+					</div>	
+					<div class="inline">
+						<div> Raccoon </div> <img class="intro-threat" src="images/raccoon.png">
+					</div>	
+				</div>
+				<div class="page3-row">
+					<div class="inline">
+						<div class="page3-title">Tools:</div>
+						<img src="#" style="visibility:hidden; height:25px;">
+					</div>
+					<div class="inline">
+						<div> Cash </div> <img class="intro-tool" src="images/cash.png">
+					</div>
+					<div class="inline">
+						<div> Soap </div> <img class="intro-tool" src="images/soap.png">
+					</div>
+					<div class="inline">
+						<div> Food </div> <img class="intro-tool" src="images/food.png">
+					</div>
+					<div class="inline">
+						<div> Cage </div> <img class="intro-tool" src="images/cage.png">
+					</div>
+				</div>
+
+				<button id="back-btn3" class="left-btn intro-btn"> Back </button>
+				<button id="next-btn3" class="right-btn intro-btn"> Next </button>
+			</div>
+
+			<div id="instructions-page4" class="instructions">
+				<h1 class="header">How to Play</h1>		
+				<div class="description description4">
+					Rescue a dog by selecting the appropriate toolbelt item and then clicking on its threat. A threat will hover near a dog for a short period before disappearing. If you do not eliminate the threat in time, the dog's health will be reduced. Once a dog's health is completely gone, it is considered 'dead'. If all dogs die, then you have lost the game!
+				</div>
+				<img id="screenshot1" src="images/screenShot1.png">
+				<img id="screenshot2" src="images/screenShot2.png">
+				<button id="back-btn4" class="left-btn intro-btn"> Back </button>
+				<button id="next-btn4" class="right-btn intro-btn"> Next </button>
+			</div>
+
+			<div id="instructions-page5" class="instructions">
+				<h1 class="header">How to Play</h1>		
+				<div class="description">
+					Each time you rescue a dog, you earn coins, but you also lose a little supply from the tool you used. If you run out of a tool supply and have enough coins, you can purchase more supply by clicking on the shopping cart next to the tool supply level.
+				</div>
+				<div class="">
+					<img class="p5-screens" id="screenshot3" src="images/screenShot3.png">
+					<img class="p5-screens" id="screenshot4" src="images/screenShot4.png">
+				</div>
+
+				<button id="back-btn5" class="left-btn intro-btn"> Back </button>
+				<!-- <button id="next-btn5" class="right-btn intro-btn"> Next </button> -->
+				<button id="play-btn5" class="right-btn intro-btn"> Play </button>
+			</div>
+
 		</div>
 
 		<!-- GAME PLAY -->
@@ -127,6 +197,11 @@
 					<img id="cage" class="toolbelt-item tool" src="images/cage.png">
 					<img id="cash" class="toolbelt-item tool" src="images/cash.png">
 					<img id="coin" class="toolbelt-item" src="images/coinbag.png">
+
+					<img id="mini-hunger" class="mini-threat" src="images/hunger-mini.png">
+					<img id="mini-fleas" class="mini-threat" src="images/fleas-mini.png">
+					<img id="mini-raccoon" class="mini-threat" src="images/raccoon-mini.png">
+					<img id="mini-catcher" class="mini-threat" src="images/catcher-mini.png">
 				</div>
 				<div id="toolbelt-row2">
 					<a href="#buy-modal" rel="modal:open">
@@ -135,7 +210,6 @@
 					<div id="supply-level-background1" class="supply-level-background">
 						<div id="food-level" class="supply-level"></div>
 					</div>
-
 
 					<a href="#buy-modal" rel="modal:open">
 						<img id="soap-cart" class="cart" src="images/cart.png">

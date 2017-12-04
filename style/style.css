@@ -19,11 +19,11 @@ body {
 	/*display: none;*/
 }
 
-#title-page {
+#title-page1 {
 	/*display: none;*/
 }
 
-#instructions-page1 {
+.instructions {
 	display: none;
 }
 
@@ -40,7 +40,7 @@ body {
 }
 
 
-/* TITLE PAGE */
+/* TITLE PAGE AND INSTRUCTIONS */
 .header {
 	font-family: Pacifico;
 	margin: 0px;
@@ -58,38 +58,102 @@ button {
 	color: white;
 }
 
-#instructions-btn1 {
+.left-btn {
 	position: absolute;
 	top: 500px;
 	left: 175px;
 }
 
-#play-btn1 {
+.right-btn {
 	position: absolute;
 	top: 500px;
 	left: 375px;
 }
 
-#back-btn2 {
-	position: absolute;
-	top: 500px;
-	left: 175px;
+.intro-btn {
+	top: 600px;
 }
 
-#play-btn2 {
-	position: absolute;
-	top: 500px;
-	left: 375px;
-}
-
-#instructions {
+.description {
 	background-color: rgba(255, 255, 255, 0.65);
 	margin: 30 100px;
 	text-align: center;
-	font-size: 20px;
+	font-size: 25px;
+	padding: 10px;
 }
 
+.description3 {
+	font-size: 22px;
+}
 
+.description4 {
+	font-size: 21px;
+}
+
+.intro-dogs {
+	margin-left: 90px;
+}
+
+.intro-dog {
+	width: 90px;
+	height: 90px;
+	padding: 20px;
+}
+
+.intro-threat, .intro-tool {
+	width: 60px;
+	height: 60px;
+	padding-top: 5px;
+}
+
+.page3-row {
+	background-color: rgba(255, 255, 255, 0.65);
+	margin: 10px;
+	margin-left: 70px;
+	display: block;
+	/*margin-left: 100px;*/
+	/*background-color: red;*/
+	text-align: center;
+	width: 80%;
+
+}
+
+.inline {
+	display: inline-block;
+	margin: 10px 20px;
+}
+
+.page3-title {
+	font-size: 25px;
+	font-style: bold;
+}
+
+#screenshot1 {
+	border: 3px solid;
+	margin-left: 150px;
+}
+
+#screenshot2 {
+	border: 3px solid;
+	margin-left: 50px;
+}
+
+#screenshot3 {
+	border: 3px solid;
+	margin-left: 25px;
+	height: 75px;
+	width: 190px;
+}
+
+#screenshot4 {
+	border: 3px solid;
+	height: 100px;
+	width: 420px;
+}
+
+.p5-screens {
+	margin: auto 10px;
+}
 
 /* TOOLBELT */
 #toolbelt {
@@ -99,11 +163,16 @@ button {
 }
 
 .toolbelt-item {
+	position: absolute;
 	padding: 10px;
 }
 
-#food {
+.mini-threat {
 	position: absolute;
+	top: 660px;
+}
+
+#food {
 	left: 50px;
 }
 
@@ -111,12 +180,15 @@ button {
 	left: 40px;
 }
 
+#mini-hunger {
+	left: 110px;
+}
+
 #supply-level-background1 {
 	left: 60px;
 }
 
 #soap {
-	position: absolute;
 	left: 190px;
 }
 
@@ -124,12 +196,15 @@ button {
 	left: 180px;
 }
 
+#mini-fleas {
+	left: 250px;
+}
+
 #supply-level-background2 {
 	left: 200px;
 }
 
 #cage {
-	position: absolute;
 	left: 330px;
 }
 
@@ -137,17 +212,24 @@ button {
 	left: 320px;
 }
 
+#mini-raccoon {
+	left: 400px;
+}
+
 #supply-level-background3 {
 	left: 340px;
 }
 
 #cash {
-	position: absolute;
 	left: 470px;
 }
 
 #cash-cart {
 	left: 460px;
+}
+
+#mini-catcher {
+	left: 540px;
 }
 
 #supply-level-background4 {
@@ -159,7 +241,6 @@ button {
 }
 
 #coin {
-	position: absolute;
 	left: 600px;
 }
 
