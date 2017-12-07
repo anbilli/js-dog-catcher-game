@@ -310,6 +310,7 @@ function gameover() {
 	supplyLevels = {'cash': _MAX_SUPPLY, 'soap': _MAX_SUPPLY,
 						'food': _MAX_SUPPLY, 'cage': _MAX_SUPPLY};
 	updateCoins(-coinCount);
+	$('div').css("cursor", "default");
 	savedDogs = 0;
 
 	// Reset images
