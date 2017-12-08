@@ -69,7 +69,6 @@ $(document).ready(function() {
 	});
 
 
-
 	// Start game play
 	$('#play-btn1').click(function() {
 		$('#game-intro').hide();
@@ -191,7 +190,7 @@ function selectTool(tool) {
 			alert('You have no ' + tool + ' supply left!');
 		}
 		else {
-			$('div').css("cursor", "url('images/" + tool + ".png'), pointer");
+			$('div').css("cursor", "url('images/" + tool + ".png') 35 35, pointer");
 			currentTool = tool;
 		}
 		
